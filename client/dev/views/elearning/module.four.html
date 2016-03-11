@@ -1,0 +1,317 @@
+<div id="moduleFour" ng-controller="ModuleFourController as modal" ng-init="elearning.value=75">
+    <div class="form-body">
+        <div ng-switch="modal.getCurrentStep()" class="slide-frame">
+            <div ng-switch-when="one" class="wave">
+                <div class="videogular-container">
+                    <videogular class="embed-responsive embed-responsive-16by9" vg-theme="modal.config.theme.url" vg-complete="modal.finished()">
+                        <vg-media vg-src="modal.config.sources">
+                        </vg-media>
+                        <vg-controls vg-autohide="modal.config.plugins.controls.autoHide" vg-autohide-time="modal.config.plugins.controls.autoHideTime">
+                            <vg-play-pause-button></vg-play-pause-button>
+                            <vg-scrub-bar>
+                                <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                            </vg-scrub-bar>
+                            <vg-fullscreen-button></vg-fullscreen-button>
+                        </vg-controls>
+                        <vg-overlay-play></vg-overlay-play>
+                        <vg-buffering></vg-buffering>
+                    </videogular>
+                </div>
+                <br /><br />
+                <div class="a-right" ng-show="modal.showContinueButton">
+                    <button class="btn btn-primary btn-lg sharp" ng-click="modal.handleNext()">{{modal.getNextLabel()}}</button>
+                </div>
+            </div>
+            <div ng-switch-when="two" class="wave" id="mod-4">
+                <fieldset>
+                    <style>
+                         #drag-drop-container {
+                            width: auto;
+                            position: relative;
+                            max-width: 951px;
+                            max-height: 451px;
+                        }
+
+                        /*NEW*/
+                        #ddItem1 {
+                            width: 100%;
+                            height: auto;
+                            max-width: 951px;
+                            max-height: 451px;
+                            position: relative;
+                        }
+
+                        #ddItem1 img {width:100%;height:auto; max-width: 951px; max-height: 451px;}
+                        #ddItem2 img { width: 100%;height: auto; max-width: 951px; max-height: 451px;}
+                        #ddItem3 img {width: 100%;height: auto; max-width: 951px; max-height: 451px;}
+
+                            /*NEW END*/
+                            #drag-drop-container #ddItem1 {
+                                z-index: 10;
+                            }
+
+	                    .responsive-draggables{ width:9.67%;height:17.78%;max-width: 92px;max-height: 82px}
+
+                        /*drop target 1*/
+                        #ddItem1 #ddtarget1 {
+                            position: absolute;
+                            top: 34.27%;
+                            left: 37.85%;
+                            width: 11.14%;
+                            height: 21.28%;
+
+                        }
+
+                        #ddItem1 #ddtarget2 {
+                            position: absolute;
+                            top: 10.19%;
+                            left: 53.62%;
+                            width: 11.14%;
+                            height: 21.28%;
+
+                            max-width: 106px;
+                            max-height: 96px;
+                        }
+
+                        #ddItem1 #ddtarget3 {
+                            position: absolute;
+                            top: 14.53%;
+                            left: 75.70%;
+
+                            width: 11.14%;
+                            height: 21.28%;
+
+                            max-width: 106px;
+                            max-height: 96px;
+                        }
+
+                        /*drop target 2*/
+                        #ddItem2 .ddtarget1 {
+                            position: absolute;
+                            top: 31.01%;
+                            left: 67.82%;
+                            width: 11.14%;
+                            height: 21.28%;
+                            max-width: 106px;
+                            max-height: 96px;
+                        }
+
+                        #ddItem2 .ddtarget2 {
+                            position: absolute;
+                            top: 30.58%;
+                            left: 81.49%;
+                            width: 11.14%;
+                            height: 21.28%;
+                            max-width: 106px;
+                            max-height: 96px;
+                        }
+
+                        #ddItem2 .ddtarget3 {
+                            position: absolute;
+                            top: 52.71%;
+                            left: 81.49%;
+                            width: 11.14%;
+                            height: 21.28%;
+                            max-width: 106px;
+                            max-height: 96px;
+                        }
+
+
+                        /*drop target 3*/
+
+                        #ddItem3 .ddtarget1 {
+                            position: absolute;
+                            top: 01.51%;
+                            left: 49.84%;
+                            width: 11.14%;
+                            height: 21.28%;
+                            max-width: 106px;
+                            max-height: 96px;
+                        }
+
+                        #ddItem3 .ddtarget2 {
+                            position: absolute;
+                            top: 144px;
+                            left: 473px;
+                            width: 11.14%;
+                            height: 21.28%;
+                            max-width: 106px;
+                            max-height: 96px;
+                        }
+
+                        #ddItem3 .ddtarget3 {
+                            position: absolute;
+                            top: 225px;
+                            left: 596px;
+                            width: 11.14%;
+                            height: 21.28%;
+                            max-width: 106px;
+                            max-height: 96px;
+                        }
+
+
+                        .drop_target {
+                            background-image: url('imgs/images/ddtarget.png') no-repeat;
+                            width: 9.67%;
+                            height: 17.78%;
+                            max-width: 92px;
+                            max-height: 82px;
+                        }
+                        #draggables { position:absolute;top:8.02%; z-index:900;}
+
+                        .active_hazzard{position:absolute;background-image: url('imgs/images/hazzard_drag_selected.png');height:20.82%;width:11.14%; background-repeat:no-repeat;margin-left:-8px;margin-top:-8px; z-index:40}
+
+                        #ddItem1-message {
+                            position: absolute;
+                            left: 2.62%;
+                            top: 27.11%;
+                            width: 28.28%;
+
+                            max-width:250px;
+                            text-align: center;
+                        }
+
+                        #ddItem1-message .messages {
+                            position: absolute;
+                            font-family: arial,verdana, helvetica;
+                            text-transform: uppercase;
+                            color: #FFF;
+                            width:100%;
+                            line-height:110%;
+                            z-index: 100;
+                        }
+
+                        #ddItem1-message span {
+                            padding-left: 4.20%;
+                        }
+
+                      .next_btn{
+                            position:absolute;
+                            top:84.81%;
+                            left:88.22%;
+                            width:11.04%;
+                            height:14.31%;
+
+                            max-width: 105px;
+                            max-height: 66px;
+                            z-index:100;
+                        }
+
+                       .next_btn img{width:100%;height:auto;}
+                       .disableClicks{width:100%;height:100%;border:0px solid #ffffff;z-index:10000000000;position:relative}
+
+                    </style>
+
+
+                    <div id="drag-drop-container">
+
+						<!-- Drop target areas -->
+						<div id="draggables"  class="responsive-draggables" draggable>
+							<div id="draggable1" data-correct="3"><img src="imgs/images/hazzard_drag.png" width="100%"></div>
+							<div id="draggable2" data-correct="1"><img src="imgs/images/slow.png" width="100%"></div>
+							<div id="draggable3" data-correct="2"><img src="imgs/images/blind-curve_drag.png" width="100%"></div>
+						</div>
+
+						<!-- Message areas -->
+						<div id="ddItem1-message">
+							<div class="messages"></div>
+						</div>
+
+					   <!-- interactive item1 -->
+						<div id="ddItem1">
+
+					    	<img src="imgs/images/blind_curve.jpg" id="skyview1">
+
+					        <div id="ddtarget1" class="ddtarget1" data-ref="1">
+					          <div class="drop_target"></div>
+					        </div>
+					        <div id="ddtarget2" class="ddtarget2" data-ref="2">
+					          <div class="drop_target"></div>
+					        </div>
+					        <div id="ddtarget3" class="ddtarget3" data-ref="3">
+					          <div class="drop_target"></div>
+					        </div>
+					    </div>
+
+
+					     <div id="ddItem2">
+					         <img src="imgs/images/crosswalk.jpg" id="skyview2">
+
+					        <div class="ddtarget1" data-ref="3">
+					          <div class="drop_target"></div>
+					        </div>
+					        <div class="ddtarget2" data-ref="2">
+					          <div class="drop_target"></div>
+					        </div>
+					        <div class="ddtarget3" data-ref="1">
+					          <div class="drop_target"></div>
+					        </div>
+					    </div>
+
+
+					    <div id="ddItem3">
+					        <img src="imgs/images/left_turn.jpg" id="skyview3">
+
+					        <div class="ddtarget1" data-ref="3">
+					          <div class="drop_target"></div>
+					        </div>
+					        <div class="ddtarget2" data-ref="2">
+					          <div class="drop_target"></div>
+					        </div>
+					        <div class="ddtarget3" data-ref="1">
+					          <div class="drop_target"></div>
+					        </div>
+					    </div>
+
+						<div class="next_btn"><img src="imgs/images/continue.png"></div>
+
+						<div class="disableClicks"></div>
+					</div>
+					<div id="iphone-Audio" style="border:1px solid;width:100px;height:1px solid"></div>
+
+
+					<!--DD set 1 -->
+					<audio src="http://arbella.media.jackmorton.net/audio//Distractology_Screen_17c.mp3" id="set1_instruction" preload="auto"></audio>
+
+					<audio src="http://arbella.media.jackmorton.net/audio//Distractology_Screen_17c_HazardNo.mp3" id="set1_q0_wrong" preload="auto"></audio>
+					<audio src="http://arbella.media.jackmorton.net/audio//Distractology_Screen_17c_HazardYes.mp3" id="set1_q0_correct" preload="auto"></audio>
+
+					<audio src="http://arbella.media.jackmorton.net/audio//Distractology_Screen_17c_SlowNo.mp3" id="set1_q1_wrong" preload="auto"></audio>
+					<audio src="http://arbella.media.jackmorton.net/audio//Distractology_Screen_17c_SlowYes.mp3" id="set1_q1_correct" preload="auto"></audio>
+
+					<audio src="http://arbella.media.jackmorton.net/audio//Distractology_Screen_17c_VisibilityNo.mp3" id="set1_q2_wrong" preload="auto"></audio>
+					<audio src="http://arbella.media.jackmorton.net/audio//Distractology_Screen_17c_VisibilityYes.mp3" id="set1_q2_correct" preload="auto"></audio>
+
+					<!--DD set 2-->
+					<audio src="http://arbella.media.jackmorton.net/audio//Distractology_Screen_17d.mp3" id="set2_instruction" preload="auto"></audio>
+
+					<audio src="http://arbella.media.jackmorton.net/audio//Distractology_Screen_17d_HazardNo.mp3" id="set2_q0_wrong" preload="auto"></audio>
+					<audio src="http://arbella.media.jackmorton.net/audio//Distractology_Screen_17d_HazardYes.mp3" id="set2_q0_correct" preload="auto"></audio>
+
+					<audio src="http://arbella.media.jackmorton.net/audio//Distractology_Screen_17d_SlowNo.mp3" id="set2_q1_wrong" preload="auto"></audio>
+					<audio src="http://arbella.media.jackmorton.net/audio//Distractology_Screen_17d_SlowYes.mp3" id="set2_q1_correct" preload="auto"></audio>
+
+					<audio src="http://arbella.media.jackmorton.net/audio//Distractology_Screen_17d_VisibilityNo.mp3" id="set2_q2_wrong" preload="auto"></audio>
+					<audio src="http://arbella.media.jackmorton.net/audio//Distractology_Screen_17d_VisibilityYes.mp3" id="set2_q2_correct" preload="auto"></audio>
+
+					<!--DD set 3-->
+					<audio src="http://arbella.media.jackmorton.net/audio//Distractology_Screen_17e.mp3" id="set3_instruction" preload="auto"></audio>
+
+					<audio src="http://arbella.media.jackmorton.net/audio//Distractology_Screen_17e_HazardNo.mp3" id="set3_q0_wrong" preload="auto"></audio>
+					<audio src="http://arbella.media.jackmorton.net/audio//Distractology_Screen_17e_HazardYes.mp3" id="set3_q0_correct" preload="auto"></audio>
+
+					<audio src="http://arbella.media.jackmorton.net/audio//Distractology_Screen_17e_SlowNo.mp3" id="set3_q1_wrong" preload="auto"></audio>
+					<audio src="http://arbella.media.jackmorton.net/audio//Distractology_Screen_17e_SlowYes.mp3" id="set3_q1_correct" preload="auto"></audio>
+
+					<audio src="http://arbella.media.jackmorton.net/audio//Distractology_Screen_17e_VisibilityNo.mp3" id="set3_q2_wrong" preload="auto"></audio>
+					<audio src="http://arbella.media.jackmorton.net/audio//Distractology_Screen_17e_VisibilityYes.mp3" id="set3_q2_correct" preload="auto"></audio>
+
+                </fieldset>
+                <br /><br />
+                <div class="a-right" ng-show="modal.showContinueButton">
+                    <button class="btn btn-primary" ng-click="modal.handleNext()">{{modal.getNextLabel()}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

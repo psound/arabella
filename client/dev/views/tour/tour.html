@@ -1,0 +1,38 @@
+<div class="container main" role="main">
+    <h1 class="b-700">THE TOUR</h1>
+    <div class="row vertical-align">
+        <div id="tour" class="wrapper inner-header col-lg-12 col-md-12 col-sm-12 col-xs-12 vertical-align">
+            <div class="col-md-7 col-sm-7 col-xs-7" id="headline-text">
+                <p>
+                    Distractology’s traveling tour puts inexperienced drivers behind the wheel of a simulator to experience real-world distractions that can cause real-world accidents. Like spilling a drink in your lap. Fiddling with the radio. And, of course, texting. You know, distractions.
+                </p>
+                    <p>
+                        Help us put an end to accidents by getting schooled in Distractology. Take the tour, complete the Challenge, and be in charge when you’re behind the wheel.
+                    </p>
+
+            </div>
+            <div class="col-md-5 col-sm-5 col-xs-5" id="headline-image">
+                <img class="img-responsive" src="imgs/tour/tour_distractee.png"/>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <h3 class="b-700">TOUR SCHEDULE</h2>
+            <div class="muted space top bottom">We’re always adding more stops to the Tour. Check back here for updates.</div>
+
+            <div class="list-item" ng-repeat="data in tour.activeTours">
+                <strong>{{data.rangeFrom | date:'MM/dd'}} <span ng-if="data.sameday">- {{data.rangeTo | date:'MM/dd'}}</span></strong>
+                <div class="schedule-details">
+                    {{data.location}}<br/>
+                    Host: {{data.host}}<br/>
+                    <i>{{data.audience}}</i>
+                </div>
+            </div>
+
+            <h3 class="b-700 space top bottom">WANT MORE INFORMATION?</h2>
+
+            <button type="button" class="btn btn-primary btn-lg sharp" ui-sref="contact">CONTACT US</button>
+        </div>
+    </div>
+</div>

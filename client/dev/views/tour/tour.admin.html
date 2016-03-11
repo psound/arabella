@@ -1,0 +1,73 @@
+<div class="container main" role="main" ng-show="touradmin.loggedIn">
+    <h1 class="b-700">THE TOUR ADMIN</h1>
+    <h3 class="b-700">
+    INPUT TOUR SCHEDULE</h2>
+    <div class="alert alert-success animate-show" ng-Show="touradmin.submitted" role="alert"><span class="glyphicon glyphicon-ok"></span>&nbsp;&nbsp;&nbsp; Tour Added </div>
+    <form class="form-horizontal" id="tourForm" ng-submit="touradmin.submit(touradmin.details)">
+        <div class="form-group">
+            <label for="inputDateRange" class="col-sm-2 control-label">Date Range</label>
+            <div class="col-sm-5">
+                From:
+                <span class="glyphicon glyphicon-calendar form-control-feedback" aria-hidden="true"></span>
+                <input type="text" class="form-control" ui-date="touradmin.dateOptions" ui-date-format="mm/dd/yyyy" placeholder="mm/dd/yyyy" ng-model="touradmin.details.rangeFrom" ng-required="true">
+                <div role="alert">
+                     <span class="error" ng-show="tourForm.input.$error.required">
+                         Required!</span>
+                     <span class="error" ng-show="tourForm.input.$error.date">
+                         Not a valid date!</span>
+                </div>
+            </div>
+            <div class="col-sm-5">
+                To:
+                <span class="glyphicon glyphicon-calendar form-control-feedback" aria-hidden="true"></span>
+                <input type="text" class="form-control" ui-date="touradmin.dateOptions" ui-date-format="mm/dd/yyyy" placeholder="mm/dd/yyyy" ng-model="touradmin.details.rangeTo" ng-required="true">
+                <div role="alert">
+                     <span class="error" ng-show="tourForm.input.$error.required">
+                         Required!</span>
+                     <span class="error" ng-show="tourForm.input.$error.date">
+                         Not a valid date!</span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputLocation" class="col-sm-2 control-label">Location</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputLocation" placeholder="Location" ng-model="touradmin.details.location" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputHost" class="col-sm-2 control-label">Host</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputHost" placeholder="Host" ng-model="touradmin.details.host" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputAudience" class="col-sm-2 control-label">Audience</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputAudience" placeholder="Audience" ng-model="touradmin.details.audience" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-primary">Add Tour</button>
+            </div>
+        </div>
+    </form>
+    <hr>
+    <h3>Manage Tours</h3>
+
+    <table class="table table-striped" id="editTours">
+        <tr><th>&nbsp;</th><th>Dates</th><th>Location</th><th>Host</th><th>Audience</th></tr>
+        <tr ng-repeat="data in touradmin.tours" ng-show="data.isActive">
+            <td><input type="checkbox" ng-model="data.toDelete"></td>
+            <td>{{data.rangeFrom | date:'MM/dd'}} <span ng-if="data.rangeFrom != data.rangeTo">- {{data.rangeTo | date:'MM/dd'}}</td>
+            <td>{{data.location}}</td>
+            <td>{{data.host}}</td>
+            <td>{{data.audience}}</td>
+        </tr>
+    </table>
+    <buttom class="btn btn-danger" ng-click="touradmin.erraseTour(touradmin.tours)">DELETE</button>
+</div>
+<div ng-hide="touradmin.loggedIn">
+        <h2 class="text-center">Must be logged in!</h2>
+</div>

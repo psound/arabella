@@ -1,0 +1,10 @@
+<div class="container main" ng-show="admin.loggedIn">
+    <br>
+    <div class="center-block col-md-12">
+        <h3>Period of {{admin.lastWeek}} to {{admin.today}}</h3>
+        <button class="btn btn-primary" type="button" ng-csv="admin.rawdata" filename="{{admin.lastWeek}}-{{admin.today}}.csv">Export to CSV</button>
+    </div>
+</div>
+<div ng-hide="admin.loggedIn">
+        <h2 class="text-center">Must be logged in!</h2>
+</div>

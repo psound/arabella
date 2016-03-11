@@ -1,0 +1,55 @@
+{
+  "name": "arbella",
+  "main": "arbella.js",
+  "version": "0.0.2",
+  "homepage": "https://github.com//arbella",
+  "authors": [
+    "highiq <email>"
+  ],
+  "description": "desc",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    ".idea",
+    ".gitignore",
+    "node_modules",
+    "tests",
+    "LICENSE",
+    "bower_components",
+    "coverage",
+    "gulpfile.js",
+    "package.json",
+    "*.conf.js"
+  ],
+  "dependencies": {
+    "jquery-ui": "1.11.4",
+    "jqueryui-touch-punch": "4bc0091452",
+    "bootstrap": "~3.3.1",
+    "bootstrap-sweetalert": "0.4.5",
+    "angular": "~1.4.x",
+    "angular-bootstrap": "~0.14.3",
+    "angular-messages": "~1.4.x",
+    "angular-route": "~1.4.x",
+    "angular-resource": "~1.4.x",
+    "angular-socket-io": "~0.7.0",
+    "angular-ui-router": "^0.2.15",
+    "fontawesome": "~4.3.0",
+    "videogular": "~1.4.1",
+    "videogular-themes-default": "~1.4.1",
+    "videogular-poster": "~1.4.1",
+    "videogular-controls": "~1.4.1",
+    "videogular-buffering": "~1.4.1",
+    "videogular-overlay-play": "~1.4.1",
+    "ng-xtorage": "~1.2.1",
+    "checklist-model": "~0.8.0",
+    "angular-trix": "^1.0.2",
+    "angular-ui-date": "^0.0.11",
+    "ng-csv": "~0.3.6",
+    "angular-md5": "^0.1.10"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.4.x"
+  },
+  "moduleType": [],
+  "private": true
+}

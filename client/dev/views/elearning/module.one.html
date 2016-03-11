@@ -1,0 +1,259 @@
+<div id="moduleOne" ng-controller="ModuleOneController as modal" ng-init="elearning.value=1">
+    <div class="form-body">
+        <div ng-switch="modal.getCurrentStep()" class="slide-frame">
+            <div ng-switch-when="one" class="wave">
+                <div class="videogular-container">
+                    <videogular class="embed-responsive embed-responsive-16by9" vg-theme="modal.config.theme.url" vg-complete="modal.finished()">
+                        <vg-media vg-src="modal.config.sources">
+                        </vg-media>
+                        <vg-controls vg-autohide="modal.config.plugins.controls.autoHide" vg-autohide-time="modal.config.plugins.controls.autoHideTime">
+                            <vg-play-pause-button></vg-play-pause-button>
+                            <vg-scrub-bar>
+                                <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                            </vg-scrub-bar>
+                            <vg-fullscreen-button></vg-fullscreen-button>
+                        </vg-controls>
+                        <vg-overlay-play></vg-overlay-play>
+                        <vg-buffering></vg-buffering>
+                    </videogular>
+                </div>
+                <br /><br />
+                <div class="a-right" ng-show="modal.showContinueButton">
+                    <button class="btn btn-primary btn-lg sharp" ng-click="modal.handleNext()">{{modal.getNextLabel()}}</button>
+                </div>
+            </div>
+            <!--
+            <div ng-switch-when="two" class="wave">
+                <fieldset>
+                    <div class="form-group orange" ng-hide="modal.wizard.module1_question1_a &&
+                        modal.wizard.module1_question1_b && modal.wizard.module1_question1_c &&
+                        modal.wizard.module1_question1_d && modal.wizard.module1_question1_e &&
+                        modal.wizard.module1_question1_f && modal.wizard.module1_question1_g">
+                        <label class="question pull-left">Which of the following leads to distracted driving? (check all that apply)</label>
+                        <div class="controls span2 pad-left-20">
+                            <label class="checkbox">
+                                <input type="checkbox" ng-model="modal.wizard.module1_question1_a"> Talking on the phone
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" ng-model="modal.wizard.module1_question1_b"> Drinking coffee
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" ng-model="modal.wizard.module1_question1_c"> Fixing your hair
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" ng-model="modal.wizard.module1_question1_d"> Reading a text
+                            </label>
+                        </div>
+                        <div class="controls span2 pad-left">
+                            <label class="checkbox">
+                                <input type="checkbox" ng-model="modal.wizard.module1_question1_e"> Adjusting the radio
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" ng-model="modal.wizard.module1_question1_f"> Verbally inputting an address into your GPS
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" ng-model="modal.wizard.module1_question1_g"> Chatting with friends in the backseat
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group blue" ng-show="modal.wizard.module1_question1_a &&
+                        modal.wizard.module1_question1_b && modal.wizard.module1_question1_c &&
+                        modal.wizard.module1_question1_d && modal.wizard.module1_question1_e &&
+                        modal.wizard.module1_question1_f && modal.wizard.module1_question1_g">
+                        <label>
+                            <span class="answer">Good Job!</span><br />
+                            Distracted driving is any activity that could divert a person's attention away from the primary task of driving.
+                        </label>
+                    </div>
+                    <div class="form-group orange" ng-show="false">
+                        <label>
+                            <span class="answer">Nope.</span><br />
+                            You should have checked all of these. Distracted driving is any activity that could divert a person's attention away from the primary task of driving.
+                        </label>
+                    </div>
+                    <div class="a-right" ng-show="modal.wizard.module1_question1_a &&
+                        modal.wizard.module1_question1_b && modal.wizard.module1_question1_c &&
+                        modal.wizard.module1_question1_d && modal.wizard.module1_question1_e &&
+                        modal.wizard.module1_question1_f && modal.wizard.module1_question1_g">
+                        <a class="btn btn-primary btn-lg sharp" ng-click="modal.handleNext()">{{modal.getNextLabel()}}</a>
+                    </div>
+                </fieldset>
+            </div>
+            <div ng-switch-when="three" class="wave">
+                <fieldset>
+                    <div class="form-group orange" ng-hide="modal.wizard.module1_question2 === '1' || modal.wizard.module1_question2 === '2' || modal.wizard.module1_question2 === '3'">
+                        <label class="question">When your mind is occupied with one task, your reaction to other tasks you’re trying to do at the same time is?</label>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" ng-model="modal.wizard.module1_question2" value="1">
+                                Diminished
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" ng-model="modal.wizard.module1_question2" value="2">
+                                The same
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" ng-model="modal.wizard.module1_question2" value="3">
+                                Increased
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group blue" ng-show="modal.wizard.module1_question2 === '1'">
+                        <label>
+                            <span class="answer">Good job!</span><br />
+                            Distractology tells us when your mind is occupied with one task, your reaction to other tasks you’re trying to do at the same time is diminished.
+                        </label>
+                    </div>
+                    <div class="form-group orange" ng-show="modal.wizard.module1_question2 === '2' || modal.wizard.module1_question2 === '3'">
+                        <label>
+                            <span class="answer">Nope.</span><br />
+                            Distractology tells us when your mind is occupied with one task, your reaction to other tasks you’re trying to do at the same time is diminished.
+                        </label>
+                    </div>
+                    <div class="a-right" ng-show="modal.wizard.module1_question2 === '1' || modal.wizard.module1_question2 === '2' || modal.wizard.module1_question2 === '3'">
+                        <a class="btn btn-primary btn-lg sharp" ng-click="modal.handleNext()">{{modal.getNextLabel()}}</a>
+                    </div>
+                </fieldset>
+            </div>
+            <div ng-switch-when="four" class="wave">
+                <fieldset>
+                    <div class="form-group orange" ng-hide="modal.wizard.module1_question3 === '1' || modal.wizard.module1_question3 === '2' || modal.wizard.module1_question3 === '3'">
+                        <label class="question">Select the true statement about the science of distraction.</label>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" ng-model="modal.wizard.module1_question3" value="1">
+                                Humans can do at least two things at the same effectively
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" ng-model="modal.wizard.module1_question3" value="2">
+                                Doing two things at the same time can change what we don’t see
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" ng-model="modal.wizard.module1_question3" value="3">
+                                Both statements are true
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group blue" ng-show="modal.wizard.module1_question3 === '2'">
+                        <label>
+                            <span class="answer">Good job!</span><br />
+                            The science of distraction tells us that because of the way we’re wired, humans actually can’t effectively do two things well at one time. More importantly, it can change what we don’t see.
+                        </label>
+                    </div>
+                    <div class="form-group orange" ng-show="modal.wizard.module1_question3 === '1' || modal.wizard.module1_question3 === '3'">
+                        <label>
+                            <span class="answer">Nope.</span><br />
+                            The science of distraction tells us that because of the way we’re wired, humans actually can’t effectively do two things well at one time. More importantly, it can change what we don’t see.
+                        </label>
+                    </div>
+                    <div class="a-right" ng-show="modal.wizard.module1_question3 === '1' || modal.wizard.module1_question3 === '2' || modal.wizard.module1_question3 === '3'">
+                        <a class="btn btn-primary btn-lg sharp" ng-click="modal.handleNext()">{{modal.getNextLabel()}}</a>
+                    </div>
+                </fieldset>
+            </div>
+            <div ng-switch-when="five" class="wave">
+                <fieldset>
+                    <div class="form-group orange" ng-hide="modal.wizard.module1_question4 === '1' || modal.wizard.module1_question4 === '2'">
+                        <label class="question">Just listening to someone talking decreases your ability to process visual movement.</label>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" ng-model="modal.wizard.module1_question4" value="1">
+                                True
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" ng-model="modal.wizard.module1_question4" value="2">
+                                False
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group blue" ng-show="modal.wizard.module1_question4 === '1'">
+                        <label>
+                            <span class="answer">Good job!</span><br />
+                            Activity in the area of the brain that processes movement of visual images, and is important for safe driving, decreases by as much as 37% when listening to someone speaking.
+                        </label>
+                    </div>
+                    <div class="form-group orange" ng-show="modal.wizard.module1_question4 === '2'">
+                        <label>
+                            <span class="answer">Nope.</span><br />
+                            Activity in the area of the brain that processes movement of visual images, and is important for safe driving, decreases by as much as 37% when listening to someone speaking.
+                        </label>
+                    </div>
+                    <div class="a-right" ng-show="modal.wizard.module1_question4 === '1' || modal.wizard.module1_question4 === '2'">
+                        <a class="btn btn-primary btn-lg sharp" ng-click="modal.handleNext()">{{modal.getNextLabel()}}</a>
+                    </div>
+                </fieldset>
+            </div>
+            <div ng-switch-when="six" class="wave">
+                <fieldset>
+                    <div class="form-group orange"
+                        ng-hide="modal.wizard.module1_question5_a && modal.wizard.module1_question5_b &&
+                        modal.wizard.module1_question5_c && modal.wizard.module1_question5_d &&
+                        modal.wizard.module1_question5_e && modal.wizard.module1_question5_f &&
+                        modal.wizard.module1_question5_g && modal.wizard.module1_question5_h &&
+                        modal.wizard.module1_question5_i">
+                        <label class="question pull-left">But what is a distraction while driving? Which of these activities do you think is a distraction while driving?</label>
+                        <div class="controls span2 pad-left-20">
+                            <label class="checkbox">
+                                <input type="checkbox" ng-model="modal.wizard.module1_question5_a"> Texting
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" ng-model="modal.wizard.module1_question5_b"> Using a phone
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" ng-model="modal.wizard.module1_question5_c"> Eating and drinking
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" ng-model="modal.wizard.module1_question5_d"> Talking to passengers
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" ng-model="modal.wizard.module1_question5_e"> Grooming
+                            </label>
+                        </div>
+                        <div class="controls span2 pad-left">
+                            <label class="checkbox">
+                                <input type="checkbox" ng-model="modal.wizard.module1_question5_f"> Reading, including maps
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" ng-model="modal.wizard.module1_question5_g"> Using a GPS navigation system
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" ng-model="modal.wizard.module1_question5_h"> Watching a video
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" ng-model="modal.wizard.module1_question5_i"> Adjusting a radio, CD player, or MP3 player
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group blue" ng-show="modal.wizard.module1_question5_a &&
+                        modal.wizard.module1_question5_b && modal.wizard.module1_question5_c &&
+                        modal.wizard.module1_question5_d && modal.wizard.module1_question5_e &&
+                        modal.wizard.module1_question5_f && modal.wizard.module1_question5_g &&
+                        modal.wizard.module1_question5_h && modal.wizard.module1_question5_i">
+                        <label>
+                            <span class="answer">Did you say all of them?</span><br />
+                            Then, good job! A distraction is anything that is an obstacle to attention, and distracted driving involves any activity, such as all of these, that could divert a person's attention away from the primary task of driving.
+                        </label>
+                    </div>
+                    <div class="a-right" ng-show="modal.wizard.module1_question5_a &&
+                        modal.wizard.module1_question5_b && modal.wizard.module1_question5_c &&
+                        modal.wizard.module1_question5_d && modal.wizard.module1_question5_e &&
+                        modal.wizard.module1_question5_f && modal.wizard.module1_question5_g &&
+                        modal.wizard.module1_question5_h && modal.wizard.module1_question5_i">
+                        <a class="btn btn-primary btn-lg sharp" ng-click="modal.handleNext()">{{modal.getNextLabel()}}</a>
+                    </div>
+                </fieldset>
+            </div>
+            -->
+        </div>
+    </div>
+</div>

@@ -1,0 +1,110 @@
+<div id="moduleFive" ng-controller="ModuleFiveController as modal" ng-init="elearning.value=99">
+    <div class="form-body">
+        <div ng-switch="modal.getCurrentStep()" class="slide-frame">
+            <div ng-switch-when="one" class="wave">
+                <div class="videogular-container">
+                    <videogular class="embed-responsive embed-responsive-16by9" vg-theme="modal.config.theme.url" vg-complete="modal.finished()">
+                        <vg-media vg-src="modal.config.sources">
+                        </vg-media>
+                        <vg-controls vg-autohide="modal.config.plugins.controls.autoHide" vg-autohide-time="modal.config.plugins.controls.autoHideTime">
+                            <vg-play-pause-button></vg-play-pause-button>
+                            <vg-scrub-bar>
+                                <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                            </vg-scrub-bar>
+                            <vg-fullscreen-button></vg-fullscreen-button>
+                        </vg-controls>
+                        <vg-overlay-play></vg-overlay-play>
+                        <vg-buffering></vg-buffering>
+                    </videogular>
+                </div>
+                <br /><br />
+                <div class="a-right" ng-show="modal.showContinueButton">
+                    <button class="btn btn-primary btn-lg sharp" ng-click="modal.handleNext()">{{modal.getNextLabel()}}</button>
+                </div>
+            </div>
+            <div ng-switch-when="two" class="wave">
+                <fieldset>
+                    <div ng-show="modal.questions">
+                        <div class="form-group orange">
+                            <label class="question">Experimental studies have shown that mobile phone use does which of the following (check all that apply):</label>
+                            <div class="controls span2 pad-left-20">
+                                <div class="checkbox">
+                                    <input type="checkbox" checklist-model="modal.wizard.module2_question1_a" value="1">
+                                    Reduces a driver's reaction time
+                                </div>
+                                <div class="checkbox">
+                                    <input type="checkbox" checklist-model="modal.wizard.module2_question1_a" value="2">
+                                    Affects how drivers scan information from the roadway
+                                </div>
+                                <div class="checkbox">
+                                    <input type="checkbox" checklist-model="modal.wizard.module2_question1_a" value="3">
+                                    Affects how drivers process information from the roadway
+                                </div>
+                            </div>
+                        </div>
+                        <div class="a-right" ng-show="modal.wizard.module2_question1_a.length > 0">
+                            <button class="btn btn-primary btn-lg sharp" ng-click="modal.decideRightWrongA()">{{modal.getNextLabel()}}</button>
+                        </div>
+                    </div>
+                    <div ng-show="modal.rightThis">
+                        <div class="form-group blue">
+                            <label>
+                                <span class="answer">Good job!</span><br />
+                                Mobile phone use reduces your reaction time and affects how you scan and process information from the roadway.
+                            </label>
+                        </div>
+                        <div class="a-right">
+                            <button class="btn btn-primary btn-lg sharp" ng-click="modal.handleNext()">{{modal.getNextLabel()}}</button>
+                        </div>
+                    </div>
+                    <div ng-show="modal.wrongThis">
+                        <div class="form-group orange">
+                            <label>
+                                <span class="answer">Nope.</span><br />
+                                Mobile phone use reduces your reaction time and affects how you scan and process information from the roadway.
+                            </label>
+                        </div>
+                        <div class="a-right">
+                            <button class="btn btn-primary btn-lg sharp" ng-click="modal.handleNext()">{{modal.getNextLabel()}}</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <div ng-switch-when="three" class="wave">
+                <fieldset>
+                    <div class="form-group orange wizard" ng-hide="modal.wizard.module4_question3 === '1' || modal.wizard.module4_question3 === '2'">
+                        <h1>TRUE OR FALSE</h1>
+                        <label class="question">You can train your brain to text and drive – it just takes a little effort. </label>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" ng-model="modal.wizard.module4_question3" value="1">
+                                True
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" ng-model="modal.wizard.module4_question3" value="2">
+                                False
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group blue" ng-show="modal.wizard.module4_question3 === '2'">
+                        <label>
+                            <span class="answer">Good job!</span><br />
+                            When your mind is occupied with one task, your reaction to other tasks you’re trying to do at the same time is diminished. Because of the way we’re wired, humans actually can’t effectively do two things well at one time.
+                        </label>
+                    </div>
+                    <div class="form-group orange" ng-show="modal.wizard.module4_question3 === '1'">
+                        <label>
+                            <span class="answer">Nope.</span><br />
+                            When your mind is occupied with one task, your reaction to other tasks you’re trying to do at the same time is diminished. Because of the way we’re wired, humans actually can’t effectively do two things well at one time.
+                        </label>
+                    </div>
+                    <div class="a-right" ng-show="modal.wizard.module4_question3 === '1' || modal.wizard.module4_question3 === '2'">
+                        <button class="btn btn-primary" ng-click="modal.handleNext()">{{modal.getNextLabel()}}</button>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+</div>

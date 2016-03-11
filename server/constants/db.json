@@ -1,0 +1,28 @@
+{
+      "env" : "development",
+      "database" : {
+        "dbName" : "arbella_distractology",
+        "type" : "mssql",
+        "server" : "76.12.116.168",
+        "user" : "pgarcia",
+        "password" : "Madison1!!",
+        "pool" : {
+          "max" : "10",
+          "min" : "0",
+          "timeout" : "30000"
+        }
+    },
+        "env" : "development",
+        "database" : {
+          "dbName" : "arbella_distractology",
+          "type" : "mssql",
+          "server" : "76.12.116.167",
+          "user" : "pgarcia",
+          "password" : "Madison1!!",
+          "pool" : {
+            "max" : "10",
+            "min" : "0",
+            "timeout" : "30000"
+          }
+    }
+}

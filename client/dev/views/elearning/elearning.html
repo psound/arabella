@@ -1,0 +1,13 @@
+<div class="container" role="main" ng-controller="ElearningController as elearning">
+    <div class="row">
+        <div class="col-sm-12">
+            <progressbar class="progress-striped active hidden-print" animate="true" max="100" value="elearning.value" type="info">
+                <i class="hidden-print">{{elearning.value}} / 100</i>
+            </progressbar>
+
+            <form id="signup-form">
+                <div id="form-views" ui-view></div>
+            </form>
+        </div>
+    </div>
+</div>

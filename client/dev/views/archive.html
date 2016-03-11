@@ -1,0 +1,160 @@
+
+<!------------------------------------------------------- 
+    E-LEARNING VIEW 
+-------------------------------------------------------->
+
+<!-- PROGRESS BAR #1 -->
+<div ng-controller="ProgressBarController" style="margin-bottom: 25px;">
+    <div my-progress-bar="elearning.value"></div>
+    <select ng-hide="false" ng-model="elearning.value" ng-options="item as item + '%' for item in elearning.items">
+        <option value="">-- Select current progress --</option>
+    </select>
+</div>
+
+<!-- PROGRESS BAR #2 -->
+<div style="margin-bottom: 25px;">
+    <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="{{elearning.value}}" aria-valuemin="0" aria-valuemax="100" style="width:{{elearning.value}}%">
+            <span class="sr-only">70% Complete</span>
+        </div>
+    </div>
+</div>
+
+<!-- PROGRESS BAR #3 -->
+<div style="margin-bottom: 25px;">
+    <progressbar class="progress-striped active" animate="true" max="100" value="elearning.value" type="info">
+        <i><span count-to="{{elearning.value}}" duration="1" count-from="0"></span> / 100</i>
+    </progressbar>
+</div>
+
+<!-- WIZARD ICON STEP HEADER #1 -->
+<div id="form-container">
+    <div class="page-header text-center">
+        <h2 class="x-white">Distractology E-Learning</h2>
+        <div id="status-buttons" class="text-center">
+            <a ui-sref-active="active" ui-sref=".introduction"><span>1</span> Introduction</a>
+            <a ui-sref-active="active" ui-sref=".module1"><span>2</span> Module1</a>
+            <a ui-sref-active="active" ui-sref=".module2"><span>3</span> Module2</a>
+            <a ui-sref-active="active" ui-sref=".module3"><span>4</span> Module3</a>
+            <a ui-sref-active="active" ui-sref=".summary"><span>5</span> Summary</a>
+        </div>
+    </div>
+    <form id="signup-form" ng-submit="elearning.processForm()">
+        <div id="form-views" ui-view></div>
+    </form>
+</div>
+
+<!-- WIZARD ICON STEP HEADER #2 -->
+<div class="btn-group">
+    <button class="btn" ng-class="{'btn-primary':modal.isCurrentStep(0)}" ng-click="modal.setCurrentStep(0)">Video #1</button>
+    <button class="btn" ng-class="{'btn-primary':modal.isCurrentStep(1)}" ng-click="modal.setCurrentStep(1)">Question #1</button>
+    <button class="btn" ng-class="{'btn-primary':modal.isCurrentStep(2)}" ng-click="modal.setCurrentStep(2)">Question #2</button>
+    <button class="btn" ng-class="{'btn-primary':modal.isCurrentStep(3)}" ng-click="modal.setCurrentStep(3)">Question #3</button>
+    <button class="btn" ng-class="{'btn-primary':modal.isCurrentStep(4)}" ng-click="modal.setCurrentStep(4)">Question #4</button>
+</div>
+
+<!-- VIDEO RESPONSIVE FUNCTIONS -->
+<script>
+    $(function() {
+        var $allVideos = $("iframe[src^='//player.vimeo.com'], iframe[src^='//www.youtube.com'], object, embed"),
+            $fluidEl = $("figure");
+
+        $allVideos.each(function() {
+            $(this)
+                .attr('data-aspectRatio', this.height / this.width)
+                .removeAttr('height')
+                .removeAttr('width');
+        });
+
+        $(window).resize(function() {
+            var newWidth = $fluidEl.width();
+            $allVideos.each(function() {
+                var $el = $(this);
+                $el.width(newWidth).height(newWidth * $el.attr('data-aspectRatio'));
+            });
+        }).resize();
+    });    
+</script>
+
+<!-- WIZARD STEP DIRECTIVE -->
+<stepset next-text="Next" previous-text="Previous" submit-text="Submit" submit-action="testSubmit">
+    <form>
+        <step title="Select your size">
+            <div class="control-group">
+                <div class="controls">
+                    <label class="radio" for="size-0">
+                        <input name="size" id="size-0" value="Small" checked="checked" type="radio">Small</label>
+                    <label class="radio" for="size-1">
+                        <input name="size" id="size-1" value="Medium" type="radio">Medium</label>
+                    <label class="radio" for="size-2">
+                        <input name="size" id="size-2" value="Large" type="radio">Large</label>
+                    <label class="radio" for="size-3">
+                        <input name="size" id="size-3" value="Extra Large" type="radio">Extra Large</label>
+                </div>
+            </div>
+        </step>
+        <step title="Select your toppings">
+            <div class="control-group">
+                <div class="controls">
+                    <label class="checkbox" for="toppings-0">
+                        <input name="toppings" id="toppings-0" value="Pepperoni" type="checkbox">Pepperoni</label>
+                    <label class="checkbox" for="toppings-1">
+                        <input name="toppings" id="toppings-1" value="Extra Cheese" type="checkbox">Extra Cheese</label>
+                    <label class="checkbox" for="toppings-2">
+                        <input name="toppings" id="toppings-2" value="Mushrooms" type="checkbox">Mushrooms</label>
+                    <label class="checkbox" for="toppings-3">
+                        <input name="toppings" id="toppings-3" value="Green Pepper" type="checkbox">Green Pepper</label>
+                    <label class="checkbox" for="toppings-4">
+                        <input name="toppings" id="toppings-4" value="Pineapple" type="checkbox">Pineapple</label>
+                    <label class="checkbox" for="toppings-5">
+                        <input name="toppings" id="toppings-5" value="Ham" type="checkbox">Ham</label>
+                    <label class="checkbox" for="toppings-6">
+                        <input name="toppings" id="toppings-6" value="Bacon" type="checkbox">Bacon</label>
+                </div>
+            </div>
+        </step>
+        <step title="Delivery Info" description="Who are we sending this to?">
+            <div class="control-group">
+                <label class="control-label" for="name">Name</label>
+                <div class="controls">
+                    <input id="name" name="name" placeholder="Austin Keeley" class="input-xlarge" required="" type="text" ng-model="name">
+                </div>
+            </div>
+            <!-- Text input-->
+            <div class="control-group">
+                <label class="control-label" for="address">Address</label>
+                <div class="controls">
+                    <input id="address" name="address" placeholder="123 Fake Street." class="input-xlarge" required="" type="text" ng-model="address">
+                </div>
+            </div>
+            <!-- Text input-->
+            <div class="control-group">
+                <label class="control-label" for="phoneNumber">Phone Number</label>
+                <div class="controls">
+                    <input id="phoneNumber" name="phoneNumber" placeholder="555-555-5555" class="input-xlarge" required="" type="text" ng-model="phoneNumber">
+                </div>
+            </div>
+        </step>
+    </form>
+</stepset>
+<script type="text/ng-template" id="partials/stepset.html">
+    <div>
+        <form name="stepForm">
+            <div id="steps" ng-transclude></div>
+            <div id="navBar">
+                <span>
+                    <button class="btn" ng-click="previous()" ng-disabled="!previousEnabled">{{previousText}}</button>
+                    <button class="btn" ng-click="next()" ng-disabled="!nextEnabled">{{nextText}}</button>
+                    <button class="btn btn-success" ng-click="submit()" ng-disabled="stepForm.$invalid || !submitEnabled">{{submitText}}</button>
+                </span>
+            </div>
+        </form>
+    </div>
+</script>
+<script type="text/ng-template" id="partials/step.html">
+    <div ng-show="isDisplayed">
+        <h1>{{title}}</h1>
+        <p>{{description}}</p>
+        <div ng-transclude></div>
+    </div>
+</script>

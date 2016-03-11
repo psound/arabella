@@ -1,0 +1,152 @@
+/* INNER HEADER STYLINGS
+============================================================================= */
+.header-slant {
+    background: linear-gradient(15deg, @orange-dark 17%, @orange-light 17%);
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.header-slant-alt {
+    position: absolute;
+    height: 300px; 
+    background-color: @orange-dark;
+    padding: 0;
+    margin: -80px 0 0 800px;
+    width: 300px;
+    -ms-transform: rotate(-19deg); /* IE 9 */
+    -webkit-transform: rotate(-19deg); /* Safari */
+    transform: rotate(-19deg); /* Standard syntax */
+}
+
+.inner-slant {
+    background: linear-gradient(5deg, @blue-light 77%, #fff 77%);
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    color: #fff;
+}
+
+.inner-slant-alt {
+    position: absolute;
+    height: 400px; 
+    background-color: @blue-light;
+    padding: 0;
+    margin: 51px 0 0 -50px;
+    width: 600px;
+    -ms-transform: rotate(5deg); /* IE 9 */
+    -webkit-transform: rotate(5deg); /* Safari */
+    transform: rotate(5deg); /* Standard syntax */
+}
+
+.inner-slant-alt2 {
+	position: absolute;
+	height: 400px;
+	background-color: @blue-dark;
+	padding: 0;
+	margin: 82px 0 0 475px;
+	width: 250px;
+	-ms-transform: rotate(5deg);
+	-webkit-transform: rotate(5deg);
+	transform: rotate(5deg);
+}
+
+/* INNER PAGE STYLINGS
+============================================================================= */
+#challenge #headline-text,
+#laws #headline-text,
+#facts #headline-text {
+    top:80px;
+}
+#tour #headline-text {
+    top:40px;
+}
+
+#tour #headline-text .small {
+    font-weight: normal;
+    font-size:15px;
+}
+
+#survey .stop-here {
+    border-top: 2px dashed #999;
+    border-bottom: 2px dashed #999;
+    padding: 0 0 8px 0;
+    margin: 20px 0;
+}
+
+#challenge .login-error {
+    background-color: #20536B;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 2.0;
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    /* border: solid 2px goldenrod; */
+    margin-top: 20px;
+    color: white;
+}
+
+#laws {
+    width:694px;
+    height:300px;
+    background:url(../imgs/laws/header.jpg) bottom center no-repeat;
+}
+
+#tour {
+    width:694px;
+    height:383px;
+    background:url(../imgs/tour/header.jpg) bottom center no-repeat;
+}
+#challenge {
+    width:694px;
+    height:300px;
+    background:url(../imgs/challenge/header.jpg) bottom center no-repeat;
+}
+#facts {
+    width:694px;
+    height:373px;
+    background:url(../imgs/faq/header.jpg) bottom center no-repeat;
+}
+
+.fine-print {
+    margin-top:3em;
+    color: #999999;
+    font-size: 1.2rem;
+}
+
+.contact-thanks {
+    background:url(../imgs/contact-thanks.jpg) top center no-repeat;
+    height:263px;
+}
+.contact-thanks .thanks-text {
+    position:absolute;
+	left: 40px;
+    position: absolute;
+    top: 40px;
+    width: 255px;
+}
+
+.list-item:last-child {
+    border-bottom: none;
+}
+
+#toc {
+    margin-bottom:48px;
+}
+
+#form-views {
+    position: relative;
+    height:auto;
+}
+#form-views video.video-js,
+#form-views canvas {
+    width: 100%;
+    height:auto;
+    min-height:300px;
+    max-width: 100%;
+ }
+video {
+    height: 100% !important;
+    position: absolute;
+}

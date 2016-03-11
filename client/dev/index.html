@@ -1,0 +1,125 @@
+<!doctype html>
+<html ng-app="distractology">
+    <head>
+		<meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+        <title>Distractology</title>
+        <link rel="shortcut icon" type="image/ico" href="favicon.png" />
+        <base href="/" />
+
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- build:css0 css/styles.min.css -->
+
+        <!-- bower:css -->
+        <link rel="stylesheet" href="bower_components/bootstrap-sweetalert/lib/sweet-alert.css" />
+        <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.css" />
+        <link rel="stylesheet" href="bower_components/videogular-themes-default/videogular.css" />
+        <link rel="stylesheet" href="bower_components/trix/dist/trix.css" />
+        <!-- endbower -->
+
+        <link type="text/css" rel="stylesheet" href="css/variables.less" />
+        <link type="text/css" rel="stylesheet" href="css/helpers.less" />
+        <link type="text/css" rel="stylesheet" href="css/fonts.less" />
+        <link type="text/css" rel="stylesheet" href="css/position.less" />
+        <link type="text/css" rel="stylesheet" href="css/events.less" />
+        <link type="text/css" rel="stylesheet" href="css/forms.less" />
+        <link type="text/css" rel="stylesheet" href="css/styles.less" />
+        <link type="text/css" rel="stylesheet" href="css/home.less" />
+        <link type="text/css" rel="stylesheet" href="css/inner.less" />
+        <link type="text/css" rel="stylesheet" href="css/media_queries.less" />
+        <link type="text/css" rel="stylesheet" href="css/frameworks_overrides.less" />
+        <!-- endbuild -->
+	</head>
+
+	<body ng-class="currentState">
+        <div class="app" >
+            <div ui-view="header"></div>
+            <div ui-view=""></div>
+            <div ui-view="footer"></div>
+        </div>
+
+        <script type="text/javascript">
+        var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+        document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+        <script type="text/javascript">
+        try {
+        var pageTracker = _gat._getTracker("UA-229444-43");
+        pageTracker._trackPageview();
+        } catch(err) {}</script>
+
+        <script src="http://vjs.zencdn.net/5.4.6/video.js"></script>
+        <script src='https://www.google.com/recaptcha/api.js'></script>
+
+        <!-- build:js0 js/frameworks.min.js -->
+        <!-- bower:js -->
+        <script src="bower_components/jquery/dist/jquery.js"></script>
+        <script src="bower_components/jquery-ui/jquery-ui.js"></script>
+        <script src="bower_components/jqueryui-touch-punch/jquery.ui.touch-punch.min.js"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="bower_components/bootstrap-sweetalert/lib/sweet-alert.js"></script>
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+        <script src="bower_components/angular-messages/angular-messages.js"></script>
+        <script src="bower_components/angular-route/angular-route.js"></script>
+        <script src="bower_components/angular-resource/angular-resource.js"></script>
+        <script src="bower_components/angular-socket-io/socket.js"></script>
+        <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+        <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+        <script src="bower_components/videogular/videogular.js"></script>
+        <script src="bower_components/videogular-poster/vg-poster.js"></script>
+        <script src="bower_components/videogular-controls/vg-controls.js"></script>
+        <script src="bower_components/videogular-buffering/vg-buffering.js"></script>
+        <script src="bower_components/videogular-overlay-play/vg-overlay-play.js"></script>
+        <script src="bower_components/ng-xtorage/ng-xtorage.js"></script>
+        <script src="bower_components/checklist-model/checklist-model.js"></script>
+        <script src="bower_components/trix/dist/trix.js"></script>
+        <script src="bower_components/angular-trix/dist/angular-trix.js"></script>
+        <script src="bower_components/angular-ui-date/src/date.js"></script>
+        <script src="bower_components/ng-csv/build/ng-csv.min.js"></script>
+        <script src="bower_components/angular-md5/angular-md5.js"></script>
+        <!-- endbower -->
+        <!-- endbuild -->
+
+        <!-- build:js1 js/common.min.js -->
+        <script type="text/javascript" src="js/common/library/utility.js"></script>
+        <script type="text/javascript" src="js/common/components/step.js"></script>
+        <script type="text/javascript" src="js/common/components/scrollTo.js"></script>
+        <script type="text/javascript" src="js/common/services/elearning.service.js"></script>
+        <!-- endbuild -->
+
+        <!-- build:js2 js/app.min.js -->
+        <script type="text/javascript" src="js/app.js"></script>
+        <script type="text/javascript" src="js/app.run.js"></script>
+        <script type="text/javascript" src="js/route.config.js"></script>
+        <script type="text/javascript" src="js/home/controllers/home.controller.js"></script>
+        <script type="text/javascript" src="js/admin/controllers/admin.home.controller.js"></script>
+        <script type="text/javascript" src="js/admin/controllers/admin.data.controller.js"></script>
+        <script type="text/javascript" src="js/tour/controllers/tour.controller.js"></script>
+        <script type="text/javascript" src="js/tour/controllers/tour.admin.controller.js"></script>
+        <script type="text/javascript" src="js/challenge/controllers/challenge.controller.js"></script>
+        <script type="text/javascript" src="js/elearning/controllers/elearning.controller.js"></script>
+        <script type="text/javascript" src="js/elearning/controllers/module.one.controller.js"></script>
+        <script type="text/javascript" src="js/elearning/controllers/module.two.controller.js"></script>
+        <script type="text/javascript" src="js/elearning/controllers/module.three.controller.js"></script>
+        <script type="text/javascript" src="js/elearning/controllers/module.four.controller.js"></script>
+        <script type="text/javascript" src="js/elearning/controllers/module.five.controller.js"></script>
+        <script type="text/javascript" src="js/elearning/controllers/module.summary.controller.js"></script>
+        <script type="text/javascript" src="js/facts/controllers/facts.controller.js"></script>
+        <script type="text/javascript" src="js/laws/controllers/laws.controller.js"></script>
+        <script type="text/javascript" src="js/press/controllers/press.controller.js"></script>
+        <script type="text/javascript" src="js/press/controllers/press.admin.controller.js"></script>
+        <script type="text/javascript" src="js/press/controllers/press.assets.controller.js"></script>
+        <script type="text/javascript" src="js/press/controllers/press.media.controller.js"></script>
+        <script type="text/javascript" src="js/faq/controllers/faq.controller.js"></script>
+        <script type="text/javascript" src="js/contact/controllers/contact.controller.js"></script>
+        <script type="text/javascript" src="js/contact/controllers/contact.confirmation.controller.js"></script>
+        <script type="text/javascript" src="js/educators/controllers/educators.controller.js"></script>
+        <script type="text/javascript" src="js/educators/controllers/educators.landing.controller.js"></script>
+        <script type="text/javascript" src="js/survey/controllers/survey.alt.controller.js"></script>
+        <script type="text/javascript" src="js/survey/controllers/admin.controller.js"></script>
+        <!-- endbuild -->
+
+    </body>
+</html>

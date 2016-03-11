@@ -1,0 +1,52 @@
+<div class="container main" role="main">
+    <h1 class="b-700">CONTACT</h1>
+
+    <pre ng-show="false"><code>submitted = {{contact.submitted}}</code></pre>
+    <div class="row" ng-hide="contact.submitted">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="muted space top bottom">All fields are required.</div>
+            <form name="ChallengeForm" ng-submit="contact.submit(contact.details)">
+                <div class="form-group">
+                    <label for="firstName" class="form-title">FIRST NAME</label>
+                    <input type="text" class="form-control form-textbox" id="firstName" name="firstName" ng-model="contact.details.firstName" required>
+                    <div ng-messages="ChallengeForm.firstName.$error" ng-if="ChallengeForm.firstName.$dirty">
+                        <div ng-message="required" class="has-error">First name is required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="lastName" class="form-title">LAST NAME</label>
+                    <input type="text" class="form-control form-textbox" id="lastName" name="lastName" ng-model="contact.details.lastName" required>
+                    <div ng-messages="ChallengeForm.lastName.$error" ng-if="ChallengeForm.lastName.$dirty">
+                        <div ng-message="required">Last name is required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="form-title">EMAIL ADDRESS</label>
+                    <input type="email" class="form-control form-textbox" name="email" ng-model="contact.details.email" required>
+                    <div ng-messages="ChallengeForm.email.$error" ng-if="ChallengeForm.email.$dirty">
+                        <div ng-message="required">This field is required</div>
+                        <div ng-message="email">Your email address is invalid</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="emailText" class="form-title">MESSAGE TO OUR TEAM</label>
+                    <textarea class="form-control form-textarea" id="emailText" ng-model="contact.details.emailText" required />
+                    <div ng-messages="ChallengeForm.emailText.$error">
+                        <div ng-message="required" class="has-error">This field is required</div>
+                    </div>
+                </div>
+                <div class="g-recaptcha text-center" data-sitekey="6LdfpBUTAAAAAOpe_m8hmkbLjeT9H01AWpGfVPky"></div>
+                <br>
+                <button type="submit" class="btn btn-primary btn-lg sharp" ng-disabled="contact.active">SUBMIT</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="row" ng-show="contact.submitted">
+        <div class="contact-thanks wrapper center-block col-lg-12 col-md-12 col-sm-12 col-xs-12 x-bg-blue">
+            <div class="thanks-text">
+                <h3 class="x-white">THANKS FOR CONTACTING US.</h3>
+            <p class="x-white">
+We will try to respond to every comment, but there may be a brief delay in getting back to you. Thank you for your interest in Distractology and for spending time with us on the site.</p>            </div>
+    </div>
+</div>

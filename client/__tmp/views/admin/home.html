@@ -1,0 +1,19 @@
+<div class="container main">
+    <br><br>
+    <div class="bg-danger" ng-show="admin.loginError">Invalid Password</div>
+    <div class="col-md-12">
+        <form id="login" name="login" ng-submit="admin.login(admin.details)">
+            <div class="form-group">
+                <label>Username:</label>
+                <input class="form-control" type="text" name="username" ng-model="admin.details.username" required/>
+            </div>
+            <div class="form-group">
+                <label>Password:</label>
+                <input class="form-control" type="password" name="password" ng-model="admin.details.password" required/>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-lg sharp top-20">LOG IN</button>
+            </div>
+        </form>
+    </div>
+</div>

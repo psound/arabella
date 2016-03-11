@@ -1,0 +1,31 @@
+<div id="moduleSummary" ng-controller="ModuleSummaryController as modal" ng-init="elearning.value=100">
+    <div class="form-body">
+        <div ng-switch="modal.getCurrentStep()" class="slide-frame">
+            <div ng-switch-when="one" class="wave">
+                <div ng-show="modal.hasCode">
+                    <img class="img-responsive" src="imgs/thankyou-code.png">
+                    <div class="certificate-controls">
+                        <h1>THANK YOU!</h1>
+                        <h3>Please click below to access<br />and print your certificate.</h3>
+                        <br /><br />
+                        <div>
+                            <a class="btn btn-primary" ng-click="modal.handleNext()">CERTIFICATE</a>
+                        </div>
+                    </div>
+                </div>
+                <div ng-show="!modal.hasCode">
+                    <img class="img-responsive" src="imgs/thankyou-nocode.png">
+                </div>
+            </div>
+            <div ng-switch-when="two" class="wave">
+                <div id="certificate" style="postion: relative;">
+                    <img src="imgs/certificate.png">
+                    <div style="position: absolute; top:250px; left:75px;">
+                        <div style="color: #f27933; font-size:38px; font-weight: bold">{{modal.pName}}</div>
+                        <div style="color: #f27933; font-size:15px;">has successfully completed the <b>Distractology</b> training on {{modal.date | date:'MMMM dd, yyyy'}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

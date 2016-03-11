@@ -1,0 +1,104 @@
+<div class="container main" role="main">
+    <h1 class="b-700">FOR EDUCATORS</h1>
+    <p>Register to access our complete content suite that includes Getting Ready, Curriculum, Data Sheet, Additional Materials and The Pledge. All fields are required.
+    </p>
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="muted space top bottom-20">All fields are required.</div>
+            <form name="EducatorsForm" id="EducatorsForm" ng-submit="educators.submit(educators.details)">
+                <div class="form-group">
+                    <label for="inputName" class="form-title">NAME</label>
+                    <input type="text" class="form-control form-textbox" name="inputName" id="inputName" ng-model="educators.details.name" required>
+                    <div ng-messages="EducatorsForm.inputName.$error" ng-if="EducatorsForm.inputName.$dirty">
+                        <div ng-message="required" class="has-error">Name is required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail" class="form-title">EMAIL</label>
+                    <input type="email" class="form-control form-textbox" name="inputEmail" id="inputEmail" ng-model="educators.details.email" required>
+                    <div ng-messages="EducatorsForm.inputEmail.$error" ng-if="EducatorsForm.inputEmail.$dirty">
+                        <div ng-message="required">This field is required</div>
+                        <div ng-message="email">Your email address is invalid</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputSchool" class="form-title">SCHOOL</label>
+                    <input type="text" class="form-control form-textbox" name="inputSchool" id="inputSchool" ng-model="educators.details.school" required>
+                    <div ng-messages="EducatorsForm.inputSchool.$error" ng-if="EducatorsForm.inputSchool.$dirty">
+                        <div ng-message="required" class="has-error">School name is required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputCity" class="form-title">CITY</label>
+                    <input type="text" class="form-control form-textbox" name="inputCity" id="inputCity" ng-model="educators.details.city" required>
+                    <div ng-messages="EducatorsForm.inputCity.$error" ng-if="EducatorsForm.inputCity.$dirty">
+                        <div ng-message="required" class="has-error">City is required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="selectState" class="form-title">STATE</label>
+                    <select class="form-control form-textbox" name="selectState" id="selectState" ng-model="educators.details.state" required>
+                        <option value=""></option>
+                        <option value="AL">Alabama</option>
+                        <option value="AK">Alaska</option>
+                        <option value="AZ">Arizona</option>
+                        <option value="AR">Arkansas</option>
+                        <option value="CA">California</option>
+                        <option value="CO">Colorado</option>
+                        <option value="CT">Connecticut</option>
+                        <option value="DE">Delaware</option>
+                        <option value="DC">District Of Columbia</option>
+                        <option value="FL">Florida</option>
+                        <option value="GA">Georgia</option>
+                        <option value="HI">Hawaii</option>
+                        <option value="ID">Idaho</option>
+                        <option value="IL">Illinois</option>
+                        <option value="IN">Indiana</option>
+                        <option value="IA">Iowa</option>
+                        <option value="KS">Kansas</option>
+                        <option value="KY">Kentucky</option>
+                        <option value="LA">Louisiana</option>
+                        <option value="ME">Maine</option>
+                        <option value="MD">Maryland</option>
+                        <option value="MA">Massachusetts</option>
+                        <option value="MI">Michigan</option>
+                        <option value="MN">Minnesota</option>
+                        <option value="MS">Mississippi</option>
+                        <option value="MO">Missouri</option>
+                        <option value="MT">Montana</option>
+                        <option value="NE">Nebraska</option>
+                        <option value="NV">Nevada</option>
+                        <option value="NH">New Hampshire</option>
+                        <option value="NJ">New Jersey</option>
+                        <option value="NM">New Mexico</option>
+                        <option value="NY">New York</option>
+                        <option value="NC">North Carolina</option>
+                        <option value="ND">North Dakota</option>
+                        <option value="OH">Ohio</option>
+                        <option value="OK">Oklahoma</option>
+                        <option value="OR">Oregon</option>
+                        <option value="PA">Pennsylvania</option>
+                        <option value="RI">Rhode Island</option>
+                        <option value="SC">South Carolina</option>
+                        <option value="SD">South Dakota</option>
+                        <option value="TN">Tennessee</option>
+                        <option value="TX">Texas</option>
+                        <option value="UT">Utah</option>
+                        <option value="VT">Vermont</option>
+                        <option value="VA">Virginia</option>
+                        <option value="WA">Washington</option>
+                        <option value="WV">West Virginia</option>
+                        <option value="WI">Wisconsin</option>
+                        <option value="WY">Wyoming</option>
+                    </select>
+                    <div ng-messages="EducatorsForm.selectState.$error" ng-if="EducatorsForm.selectState.$dirty">
+                        <div ng-message="required" class="has-error">State is required</div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg sharp top-20" ng-disabled="EducatorsForm.$invalid">SUBMIT</button>
+            </form>
+            <br /><br />
+            <pre ng-show="false"><code>{{educators.details | json}}</code></pre>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,60 @@
+<div class="container main" role="main">
+    <h1 class="b-700">{{::press.title}}</h1>
+    <div class="row top-20">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div ng-bind-html="press.copy">{{ng-bind-html}}</div>
+        </div>
+    </div>
+    <h3 class="b-700">MEDIA CONTACTS</h3>
+    <div class="row top-20">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12  contact-card">
+            <strong>Christine Williamson</strong><br/>
+            <span>Greenough Communications</span><br/>
+            <a href="tel:16172756528" class="x-orange">617.275.6528</a><br/>
+            <a href="mailto:cwilliamson@greenough.biz" class="x-orange">cwilliamson@greenough.biz</a>
+        </div>
+    </div>
+    <h3 class="b-700">RESOURCES</h3>
+    <div class="row top-20 bottom">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+            <a href="media/Distractology-Fact-Sheet.pdf" target="_factsheet" class="btn btn-primary btn-lg sharp">FACT SHEET</a>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+            <a href="http://www.arbella.com/arbella-insurance/why-arbella/arbella-insurance-foundation" target="_blank"><button class="btn btn-primary btn-lg sharp">ABOUT ARBELLA</button></a>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+            <a href="media/Distractology-101-Bios.pdf" target="_bio" class="btn btn-primary btn-lg sharp">BIOGRAPHIES</a>
+        </div>
+    </div>
+    <div class="row bottom">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+            <button type="submit" class="btn btn-primary btn-lg sharp" ui-sref="media">MEDIA COVERAGE</button>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+            <button type="submit" class="btn btn-primary btn-lg sharp" ui-sref="assets">PHOTOS</button>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+            <a href="https://www.facebook.com/arbellainsurance/" target="_blank"><button class="btn btn-primary btn-lg sharp">FACEBOOK</button></a>
+        </div>
+
+    </div>
+    <div class="row bottom">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+            <!--<pdf-download url="media/docs/DistractologyRelaunchRelease.pdf" filename="DistractologyRelaunchRelease.pdf"></pdf-download> -->
+
+            <a href="/media/DistractologyRelaunchRelease.pdf" class="btn btn-primary btn-lg sharp" target="_bio">PRESS RELEASES</a>
+        </div>
+    </div>
+<!--    <div class="row bottom">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+            <a href="http://www.arbella.com/arbella-insurance/why-arbella/arbella-insurance-foundation" target="_blank"><button class="btn btn-primary btn-lg sharp">ABOUT ARBELLA</button></a>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"></div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"></div>
+    </div> -->
+    <div class="row top-20">
+        <div class="col-md-12">
+            Would you like to bring the tour to your community? <a ui-sref="contact" ui-sref-active="active" href="/contact">Click here.</a>
+        </div>
+    </div>
+</div>

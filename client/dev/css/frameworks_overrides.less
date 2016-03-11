@@ -1,0 +1,181 @@
+@import url('//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css');
+
+//////////////////////////////////////////////////////
+// ACCORDION STYLES
+.accordion-group {
+    border-bottom: 1px solid #e5e5e5;
+    margin-bottom: 5px;
+}
+
+.accordion-heading .accordion-toggle {
+    font-size: 1.2em;
+    text-transform: uppercase;
+    font-weight: bold;
+    color:@blue-light;
+}
+.accordion-heading {
+    height:55px;
+    line-height:55px;
+}
+.accordion-toggle:after {
+    content: " ";
+    background:url(../imgs/down-arrow.png) no-repeat;
+    float: none;
+    top: 3px;
+    left:6px;
+    position:relative;
+    width:15px;
+    height:15px;
+    display:inline-block;
+}
+.accordion-toggle.collapsed:after {
+    background:url(../imgs/right-arrow.png) no-repeat;
+}
+
+.accordion-heading .accordion-toggle a,
+.accordion-heading .accordion-toggle a:hover,
+.accordion-heading .accordion-toggle a:focus,
+.accordion-heading .accordion-toggle a:visited,
+.accordion-heading .accordion-toggle a:active, {
+    color: @blue-light;
+}
+
+//////////////////////////////////////////////////////
+// COMMON ELEMENT STYLES
+a, a:hover, a:focus, a:visited, a:active {
+    color: @orange-light;
+    text-decoration: none;
+}
+
+a.btn-info, a.btn-info:hover, a.btn-info:focus, a.btn-info:visited, a.btn-info:active {
+    color: #fff;
+    text-decoration: none;
+}
+
+//////////////////////////////////////////////////////
+// COLOR STYLES
+.bg-orange-dark,
+.bg-orange-dark:hover,
+.bg-orange-dark:visited,
+.bg-orange-dark:active {
+	background-color: @orange-light;
+	color: @white-dark;
+}
+
+//////////////////////////////////////////////////////
+// FOOTER STYLES
+.footer-nav {
+	width: 100%;
+	text-align: center;
+	> li {
+		float: none;
+		display: inline-block;
+	}
+}
+
+//////////////////////////////////////////////////////
+// NAVIGATION STYLES
+
+.navbar {
+    min-height: 0;
+    /*margin-bottom: 20px;*/
+}
+
+.navbar .nav > li > a {
+    color: @orange-light;
+    outline: 0;
+}
+
+.navbar .nav > li > a:hover {
+    background-color: transparent;
+}
+
+.navbar .nav > li > a:visited {
+    background-color: transparent;
+}
+
+.navbar .nav > li > a:active {
+    background-color: transparent;
+}
+
+.vertical-align {
+	align-items: center;
+	justify-content: center;
+	flex-direction: row;
+}
+
+//////////////////////////////////////////////////////
+// FORM & FORM ELEMENT STYLES
+a.btn {
+    display:block;
+    color:#fff;
+}
+.btn-default {
+    color: #fff;
+    background-color: @orange-light;
+    border: solid 1px darken(@orange-light, 20%);
+}
+
+.form-control {
+    border-radius: 0;
+}
+
+.form-textarea,
+.form-textbox {
+    border: solid 0px #999;
+}
+
+.override .radio, .override .checkbox {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+//////////////////////////////////////////////////////
+// VIDEO STYLES
+video {
+
+}
+
+
+/***********************
+  SHARP BUTTONS
+************************/
+.sharp {
+    border-radius:0;
+}
+
+/***********************
+  CUSTON BTN VALUES
+************************/
+.btn {
+    width: 200px;
+	padding: 10px 16px;
+	border: 0 none;
+	text-transform: uppercase;
+}
+
+.btn:focus, .btn:active:focus, .btn.active:focus {
+	outline: 0 none;
+}
+
+.btn-lg {
+    font-size: 14px;
+    line-height: 1.4;
+    font-weight: 600;
+	letter-spacing: 0.2px;
+}
+
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary.active {
+	color: #ffffff;
+    background: linear-gradient(5deg, @orange-dark 47%, @orange-light 47%);
+}
+
+.open > .dropdown-toggle.btn-primary {
+	background: @orange-light;
+}
+.btn-lg {
+    font-weight:normal;
+}

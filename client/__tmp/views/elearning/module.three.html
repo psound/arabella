@@ -1,0 +1,131 @@
+<div id="moduleThree" ng-controller="ModuleThreeController as modal" ng-init="elearning.value=50">
+    <div class="form-body">
+        <div ng-switch="modal.getCurrentStep()" class="slide-frame">
+            <div ng-switch-when="one" class="wave">
+                <div class="videogular-container">
+                    <videogular class="embed-responsive embed-responsive-16by9" vg-theme="modal.config.theme.url" vg-complete="modal.finished()">
+                        <vg-media vg-src="modal.config.sources">
+                        </vg-media>
+                        <vg-controls vg-autohide="modal.config.plugins.controls.autoHide" vg-autohide-time="modal.config.plugins.controls.autoHideTime">
+                            <vg-play-pause-button></vg-play-pause-button>
+                            <vg-scrub-bar>
+                                <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                            </vg-scrub-bar>
+                            <vg-fullscreen-button></vg-fullscreen-button>
+                        </vg-controls>
+                        <vg-overlay-play></vg-overlay-play>
+                        <vg-buffering></vg-buffering>
+                    </videogular>
+                </div>
+                <br /><br />
+                <div class="a-right" ng-show="modal.showContinueButton">
+                    <button class="btn btn-primary btn-lg sharp" ng-click="modal.handleNext()">{{modal.getNextLabel()}}</button>
+                </div>
+            </div>
+            <!--
+            <div ng-switch-when="two" class="wave">
+                <fieldset>
+                    <div class="form-group orange" ng-hide="modal.wizard.module3_question1 === '1' || modal.wizard.module3_question1 === '2'">
+                        <label class="question">QUESTION #1</label>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" ng-model="modal.wizard.module3_question1" value="1">
+                                True
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" ng-model="modal.wizard.module3_question1" value="2">
+                                False
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group blue" ng-show="modal.wizard.module3_question1 === '1'">
+                        <label>
+                            <span class="answer">Good job!</span><br />
+                            CORRECT ANSWER
+                        </label>
+                    </div>
+                    <div class="form-group orange" ng-show="modal.wizard.module3_question1 === '2'">
+                        <label>
+                            <span class="answer">Nope.</span><br />
+                            INCORRECT ANSWER
+                        </label>
+                    </div>
+                    <div class="a-right" ng-show="modal.wizard.module3_question1 === '1' || modal.wizard.module3_question1 === '2'">
+                        <a class="btn btn-primary" ng-click="modal.handleNext()">{{modal.getNextLabel()}}</a>
+                    </div>
+                </fieldset>
+            </div>
+            <div ng-switch-when="three" class="wave">
+                <fieldset>
+                    <div class="form-group orange" ng-hide="modal.wizard.module3_question2 === '1' || modal.wizard.module3_question2 === '2'">
+                        <label class="question">QUESTION #2</label>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" ng-model="modal.wizard.module3_question2" value="1">
+                                True
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" ng-model="modal.wizard.module3_question2" value="2">
+                                False
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group blue" ng-show="modal.wizard.module3_question2 === '1'">
+                        <label>
+                            <span class="answer">Good job!</span><br />
+                            CORRECT ANSWER
+                        </label>
+                    </div>
+                    <div class="form-group orange" ng-show="modal.wizard.module3_question2 === '2'">
+                        <label>
+                            <span class="answer">Nope.</span><br />
+                            INCORRECT ANSWER
+                        </label>
+                    </div>
+                    <div class="a-right" ng-show="modal.wizard.module3_question2 === '1' || modal.wizard.module3_question2 === '2'">
+                        <a class="btn btn-primary" ng-click="modal.handleNext()">{{modal.getNextLabel()}}</a>
+                    </div>
+                </fieldset>
+            </div>
+            <div ng-switch-when="four" class="wave">
+                <fieldset>
+                    <div class="form-group orange" ng-hide="modal.wizard.module3_question3 === '1' || modal.wizard.module3_question3 === '2'">
+                        <label class="question">QUESTION #3</label>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" ng-model="modal.wizard.module3_question3" value="1">
+                                True
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" ng-model="modal.wizard.module3_question3" value="2">
+                                False
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group blue" ng-show="modal.wizard.module3_question3 === '1'">
+                        <label>
+                            <span class="answer">Good job!</span><br />
+                            CORRECT ANSWER
+                        </label>
+                    </div>
+                    <div class="form-group orange" ng-show="modal.wizard.module3_question3 === '2'">
+                        <label>
+                            <span class="answer">Nope.</span><br />
+                            INCORRECT ANSWER
+                        </label>
+                    </div>
+                    <div class="a-right" ng-show="modal.wizard.module3_question3 === '1' || modal.wizard.module3_question3 === '2'">
+                        <a class="btn btn-primary" ng-click="modal.handleNext()">{{modal.getNextLabel()}}</a>
+                    </div>
+                </fieldset>
+            </div>
+            -->
+        </div>
+    </div>
+</div>

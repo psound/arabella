@@ -1,0 +1,13 @@
+<div class="container main" role="main" ng-show="pressAdmin.loggedIn">
+    <h1 class="b-700">PRESS & MEDIA ADMIN</h1>
+    <br>
+        <div class="alert alert-success animate-show" ng-Show="pressAdmin.submitted" role="alert"><span class="glyphicon glyphicon-ok"></span>&nbsp;&nbsp;&nbsp;  Press Copy Updated </div>
+        <trix-editor name="copy" angular-trix ng-model="pressAdmin.copy"></trix-editor>
+        <div class="clearfix"></div>
+        <br>
+        <button class="btn btn-primary" type="button" ng-click="pressAdmin.submit(pressAdmin.copy)">Save</button>
+    </form>
+</div>
+<div ng-hide="pressAdmin.loggedIn">
+        <h2 class="text-center">Must be logged in!</h2>
+</div>

@@ -1,0 +1,30 @@
+<div id="adminSurvey" class="container main" role="main" ng-show="admin.loggedIn">
+    <h1 class="b-700">Survey Admin Tool ({{ admin.available }})</h1>
+    <table class="table" ng-show="admin.available > 0">
+        <thead>
+    	<tr>
+    		<th>Code</th>
+    		<th>Email</th>
+    		<th>Name</th>
+    		<th>Survey Type</th>
+            <th>&nbsp;</th>
+    	</tr>
+    	</thead>
+        <tr ng-repeat = "data in admin.result">
+          <td>{{ data.code }}</td>
+          <td>{{ data.email }}</td>
+          <td>{{ data.name }}</td>
+          <td>{{ data.surveyType }}</td>
+          <td><button class="btn btn-danger" ng-click="admin.delRow(data)" ng-show="data.deleteOn">Delete</button></td>
+       </tr>
+</table>
+<div class="panel panel-default" ng-show="admin.available == 0">
+  <div class="panel-body">
+    There is no Data to be pushed.
+  </div>
+</div>
+<button class="btn btn-primary" ng-click="admin.pushData()" ng-show="admin.available > 0">Push data</button>
+</div>
+<div ng-hide="admin.loggedIn">
+        <h2 class="text-center">Must be logged in!</h2>
+</div>

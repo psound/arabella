@@ -1,0 +1,12 @@
+{
+	"compilerOptions": {
+		"target": "ES6",
+		"module": "commonjs"
+	}
+},
+{
+  "remoting": {
+   "json": {"limit": "50mb"},
+   "urlencoded": {"limit": "50mb", "extended": true}
+  }
+}
